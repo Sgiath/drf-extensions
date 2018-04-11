@@ -145,9 +145,9 @@ class ExtendedActionLinkRouterMixin(object):
             initkwargs.update(getattr(viewset, methodname).kwargs)
             url_path = initkwargs.pop('url_path', endpoint)
             dynamic_routes_instances.append(Route(
-                url=replace_methodname(route.url, url_path),
+                url=route.url.replace('{url_path}', url_path),
                 mapping=dict((httpmethod, methodname) for httpmethod in httpmethods),
-                name=replace_methodname(route.name, url_path),
+                name=route.name.replace('{url_name}', url_path),
                 initkwargs=initkwargs,
             ))
         return dynamic_routes_instances
