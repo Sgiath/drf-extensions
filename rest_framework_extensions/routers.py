@@ -10,7 +10,6 @@ from rest_framework.routers import (
     DefaultRouter,
     SimpleRouter,
     Route,
-    replace_methodname,
 )
 from rest_framework import views
 from rest_framework.reverse import reverse
